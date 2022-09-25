@@ -9,15 +9,19 @@ import io.lindhagen.batchfileprocessor.domain.person.PersonBatchFileService
 import io.lindhagen.batchfileprocessor.util.EnvConfig
 import io.lindhagen.batchfileprocessor.util.JacksonConfig
 import io.lindhagen.batchfileprocessor.util.S3ObjectUploadedEvent
-import java.lang.RuntimeException
 import net.logstash.logback.argument.StructuredArguments.kv
 import org.slf4j.LoggerFactory
 
 /**
  * This application will read and parse batch files containing
- * weather information. The file itself
+ * weather information.
  *
- * @property config Contains all configurations
+ * Triggered by: SQS after completed file-upload to S3
+ * Outputs: Events to EventBridge. One event per entry in the S3-file.
+ *
+ * @property config Contains all relevant application configuration
+ * @property objectMapper JSON serializer and deserializer
+ * @property batchFileService Service implementing the core business logic.
  * */
 class PersonBatchFileProcessor(
   private val config: EnvConfig = EnvConfig.load(),
@@ -35,7 +39,7 @@ class PersonBatchFileProcessor(
       log.info("Event successfully processed!")
     }.onFailure { failure ->
       when (failure) {
-        // Include
+        // Add any relevant matchers
         else -> {
           log.error("Failed to process event", failure)
           throw failure

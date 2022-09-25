@@ -51,3 +51,6 @@ override.tf.json
 terraform/**/secrets.auto.tfvars
 
 http-client.private.env.json
+
+# This is too large for Git
+batch_persons_massive.xml

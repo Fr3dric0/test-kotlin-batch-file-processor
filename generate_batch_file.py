@@ -2,7 +2,7 @@ from faker import Faker
 
 FAKER = Faker()
 
-NUMBER_OF_ENTRIES = 1_000_000
+NUMBER_OF_ENTRIES = 4_000_000
 
 
 def main():
@@ -11,9 +11,30 @@ def main():
         print(f'{idx}: Generating person...')
         nodes.append(f"""
         <person>
+            <ssn>{FAKER.ssn()}</ssn>
+            <job>
+                <company>{FAKER.company()}</company>
+                <position>{FAKER.job()}</position>
+            </job>
             <name>{FAKER.name()}</name>
             <phone>{FAKER.phone_number()}</phone>
             <address>{FAKER.address()}</address>
+            <country>{FAKER.bank_country()}</country>
+            
+            <!-- First card -->
+            <card>
+                <expires>{FAKER.credit_card_expire()}</expires>
+                <number>{FAKER.credit_card_number()}</number>
+                <provider>{FAKER.credit_card_provider()}</provider>
+                <cvc>{FAKER.credit_card_security_code()}</cvc>
+            </card>
+            <!-- Second card -->
+            <card>
+                <expires>{FAKER.credit_card_expire()}</expires>
+                <number>{FAKER.credit_card_number()}</number>
+                <provider>{FAKER.credit_card_provider()}</provider>
+                <cvc>{FAKER.credit_card_security_code()}</cvc>
+            </card>
         </person>
         """)
 
@@ -29,7 +50,7 @@ def main():
     </root>
     """.strip()
 
-    with open('./batch_persons.xml', 'w') as f:
+    with open('./batch_persons_massive.xml', 'w') as f:
         f.write(root)
 
 
