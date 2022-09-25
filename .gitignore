@@ -1,0 +1,53 @@
+.DS_Store
+.vscode
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+.gradle
+
+node_modules/
+
+ib_settings.env
+ib_*_settings.env
+secrets.env
+
+ibok-mq-apidocs.html
+
+
+### Terraform ###
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Contains typically any non auto-retrievable or generated secrets
+terraform/**/secrets.auto.tfvars
+
+http-client.private.env.json

@@ -1,0 +1,7 @@
+# CommuteWeatherApplication
+
+## Package
+```
+./gradlew distZip
+```
+

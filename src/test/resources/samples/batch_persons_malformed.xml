@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+    <metadata>
+        <uploaded time="2022-10-09T12:10:00.000Z"/>
+    </metadata>
+    <data>
+        <person>
+            <name>Jay Grant</name>
+            <phone>502-497-9709</phone>
+            <address>8244 Cooper Point
+                North Mark, LA 79630</address>
+        </person>
+        <!-- This file is consciously malformed -->
